@@ -1,0 +1,801 @@
+html {
+    /* なぜかbodyだけでなくここでも指定しておくとsafariで横スクロールしなくなる */
+    overflow-x: hidden;
+}
+body {
+    position: relative;
+    overflow-x: hidden;
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #FFFFFF;
+    /* 背景を画像に見せかけることで画面外の背景色は白になる */
+    background-image: linear-gradient(to bottom, #EF5DA8, #EF5DA8);
+}
+a.link-decoration, .link-decoration a {
+    color: #0000EE;
+    text-decoration: underline;
+}
+a.link-decoration:hover, .link-decoration a:hover {
+    color: #0000EE;
+    text-decoration: underline;
+}
+a.link-decoration:visited, .link-decoration a:visited {
+    color: #551A8B;
+}
+/* microcmsでiframeを埋め込んだ際に横幅が設定されてしまうのを回避 */
+#blogWrapper iframe, #contents iframe {
+    width: 100%;
+}
+#blogWrapper h1, #contents h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+#blogWrapper h2, #contents h2 {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-top: 3%;
+    margin-bottom: 1%;
+}
+#blogWrapper h3, #contents h3 {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 3%;
+    margin-bottom: 1%;
+}
+main img {
+    /* 画像を選択させない */
+    pointer-events: none;
+}
+#news img {
+    margin-right: 0.5em;
+}
+#news h3 {
+    display: inline;
+}
+.newsLink {
+    font-size: 0.9em;
+}
+.link a {
+	position: relative;
+}
+.link a:after {
+	content: '';
+	background: rgba(0, 0, 0, .5);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform .5s ease;
+	height: 1px;
+	width: 100%;
+}
+.link a:hover:after {
+	transform: scaleX(1);
+	transform-origin: left;
+}
+a.link-black, .link-black a {
+    color: #000000;
+    text-decoration: none;
+}
+a.link-black:hover, .link-black a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+a.link-black:visited, .link-black a:visited {
+    color: #000000;
+}
+nav .button:hover {
+    transition: all .2s;
+    opacity: 0.8;
+}
+nav li:hover, nav #logo:hover {
+    transition: all .2s;
+    opacity: 0.6;
+}
+main .newsBox:hover {
+    transition: all .2s;
+    background-color: #f5f5f5;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+main .welcomeIntroContnts:hover {
+    transition: all .2s;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+/* スクロールバーを半透明に */
+#newsBoxEnclose::-webkit-scrollbar {
+    height: 15px;
+}
+#newsBoxEnclose::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+main #welcome .welcomeIllust {
+    background: #05C0FF;
+}
+main #welcome .welcomeMovie {
+    background: linear-gradient(0deg, rgba(5, 192, 255, 0.5), rgba(5, 192, 255, 0.5)), rgba(0, 112, 217, 0.5);
+}
+main #welcome .welcomeDTM {
+    background: linear-gradient(0deg, rgba(0, 112, 217, 0.5), rgba(0, 112, 217, 0.5)), rgba(5, 192, 255, 0.5);
+}
+main #welcome .welcomeProgramming {
+    background: #0070D9;
+}
+@media screen and (max-width: 750px) {
+    nav {
+        z-index: 10;
+        text-align: right;
+        display: flex;
+        justify-content:flex-end;
+        align-items: center;
+        position: fixed;
+        height: 65px;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 0 0 15px 15px;
+    }
+    nav .button {
+        font-size: 14px;
+        text-align: center;
+        color: #FFFFFF;
+        text-decoration: none;
+        margin-right: 2vw;
+        padding: 10px 20px;
+        background: #111111;
+        border-radius: 10px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    #logo {
+        position: fixed;
+        width: 220px;
+        top: 2%;
+        left: 2%;
+    }
+    nav ul {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        position: fixed;
+        width: 360px;
+        height: 60px;
+        left: calc(50% - 360px/2 + 1.5px);
+        bottom: 1%;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        /* Note: backdrop-filter has minimal browser support */
+        border-radius: 15px;
+    }
+    nav li {
+        text-align: center;
+        font-size: 14px;
+        width: 8em;
+        border-right: #000000;
+        vertical-align: middle;
+    }
+    nav .sub {
+        font-size: 10px;
+        color: gray;
+    }
+    .background_pink {
+        z-index: -9;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background:linear-gradient(to top left, transparent 60% , #FCDDEC 40%);     
+    }
+    .background_lightBlue {
+        z-index: -8;
+        border-radius: 50%;
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        left: 30%;
+        top: 90px;
+        background: #05C0FF;
+    }
+    .background_blue {
+        z-index: -7;
+        border-radius: 50%;
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        left: 70%;
+        top: 180px;
+        background: #0070D9;
+    }
+    main {
+        padding-top: 65px;
+    }
+    main #welcome {
+        margin-top: 2%;
+        padding: 5vmax 4vmax 2vmax 4vmax;
+        width: 96%;
+        background: #FFFFFF;
+        border-radius: 0 40px 40px 0;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    main #welcome img {
+        width: 40vmax;
+        margin-bottom: 3vh;
+    }
+    main #welcome p {
+        padding: 0;
+        color: #333333;
+        font-weight: 500;
+        line-height: 1.4em;
+        font-size: 0.9em;
+        margin-top: 1vh;
+        margin-bottom: 3vh;
+    }
+    main #welcome .welcomeIntroWrapper {
+        display: flex;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    main #welcome .welcomeIntroContnts {
+        margin: 1vw;
+        padding: 4.5vmax 0;
+        width: 50vmax;
+        height: 12vmax;
+        border-radius: 20px;
+    }
+    main #news {
+        margin-top: 5%;
+        margin-left: 5%;
+    }
+    main #newsBoxEnclose {
+        margin-top: 0.5em;
+        display: flex;
+        width: 100%;
+        overflow-x: scroll;
+    }
+    main .newsBox {
+        padding: 3vmax;
+        text-align: center;
+        /* コレをつけるとボックスが縮まない */
+        flex-shrink: 0;
+        width: 150px;
+        height: 150px;
+        margin-right: 1em;
+        background: #FFFFFF;
+        border-radius: 20px;
+    }
+    main .newsBox .date {
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+    main .newsBox .description {
+        margin-top: 4vmin;
+        color: #333333;
+    }
+    main #general {
+        position: relative;
+        margin-top: 5%;
+        margin-left: 5%;
+        width: 96%;
+        background: #FFFFFF;
+        border-radius: 40px 0 0 40px;
+        padding: 5%;
+        padding-bottom: 3vmin;
+    }
+    main #general h3 {
+        margin-top: 3%;
+        margin-left: 5%;
+    }
+    main #general .generalImg {
+        height: 50vmax;
+    }
+    main #general .generalImgBack {
+        display: none;
+    }
+    main .introBox {
+        margin-top: 5%;
+        width: 96%;
+        background: #FFFFFF;
+    }
+    main .introBox:nth-child(odd) {
+        padding: 8%;
+        border-radius: 0 40px 40px 0;
+    }
+    main .introBox:nth-child(even) {
+        padding: 8%;
+        margin-left: 5%;
+        border-radius: 40px 0 0 40px;
+    }
+    main .introBox .introTitle {
+        height: 27px;
+        margin-bottom: 5%;
+    }
+    main .introBox p {
+        color: #333333;
+        margin-bottom: 5%;
+    }
+    main .introBox .sample {
+        width: 100%;
+        margin-bottom: 2%;
+    }
+    main .introBox iframe {
+        height: 55vw;
+    }
+    main #QandA {
+        margin-top: 5%;
+        width: 96%;
+        padding: 8%;
+        border-radius: 0 40px 40px 0;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        padding: 8%;
+    }
+    #QandA h1 {
+        font-size: 1.8em;
+        font-weight: bold;
+        margin-bottom: 5%;
+    }
+    #QandA p {
+        color: #333333;
+        line-height: 1.5em;
+    }
+    footer {
+        margin-top: 5%;
+        height: 100px;
+        width: 100%;
+        padding: 2%;
+        color: #dddddd;
+        background-color: #555555;
+    }
+}
+@media screen and (min-width: 751px) {
+    nav {
+        z-index: 10;
+        text-align: right;
+        display:flex;
+        justify-content:flex-end;
+        align-items:center;
+        position: fixed;
+        height: 75px;
+        top: 0;
+        left: 5px;
+        right: 5px;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 0 0 15px 15px;
+    }
+    nav .button {
+        font-size: 14px;
+        text-align: center;
+        color: #FFFFFF;
+        text-decoration: none;
+        margin-right: 5%;
+        margin-left: 25px;
+        padding: 10px 20px;
+        background: #000000;
+        border-radius: 10px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+    }
+    nav li {
+        text-align: center;
+        font-size: 14px;
+        width: 8em;
+        border-right: #000000;
+        display: table-cell;
+        vertical-align: middle;
+    }
+    nav .sub {
+        font-size: 10px;
+        color: gray;
+    }
+    #logo {
+        position: fixed;
+        top: 2%;
+        left: 2%;
+    }
+    .background_pink {
+        z-index: -9;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background:linear-gradient(to top left, transparent 60% , #FCDDEC 40%);
+    }
+    .background_lightBlue {
+        z-index: -8;
+        border-radius: 50%;
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        left: 30%;
+        top: 90px;
+        background: #05C0FF;
+    }
+    .background_blue {
+        z-index: -7;
+        border-radius: 50%;
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        left: 70%;
+        top: 180px;
+        background: #0070D9;
+    }
+    .background_purple {
+        z-index: -6;
+        position: absolute;
+        width: 1491px;
+        height: 40vw;
+        right: 20%;
+        top: 103vh;
+        background: #5D5FEF;
+        border-radius: 100px;
+    }
+    .background_lightBlue2 {
+        z-index: -5;
+        position: absolute;
+        width: 1365px;
+        height: 40vw;
+        left: 216px;
+        top: 160vh;
+        background: #05C0FF;
+        border-radius: 100px;
+    }
+    main {
+        padding-top: 75px;
+    }
+    main #welcome {
+        /*min-width: 300px;*/
+        overflow: scroll;
+        padding: 4vmax 5vmax 0 5vmax;
+        position: absolute;
+        top: 15vh;
+        left: 2vw;
+        width: 35vw;
+        height: 82vh;
+        background: #FFFFFF;
+        border-radius: 50px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 50px;
+    }
+    main #welcome img {
+        /*min-width: 230px;*/
+        width: 25vmax;
+        margin-bottom: 2vh;
+
+    }
+    main #welcome p {
+        color: #333333;
+        font-weight: 500;
+        line-height: 1.6em;
+        font-size: 1em;
+        margin-bottom: 5vh;
+    }
+    main #welcome .welcomeIntroWrapper {
+        display: flex;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    main #welcome .welcomeIntroContnts {
+        margin: 0.3vw;
+        padding: 6vmin 0;
+        width: 15vw;
+        height: 15vh;
+        border-radius: 25px;
+    }
+    /* スクロールバーを消す */
+    #welcome::-webkit-scrollbar {
+        height: 0;
+        width: 0;
+    }
+    #welcome::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0);
+    }
+    main #news {
+        position: absolute;
+        left: 39vw;
+        top: 13vh;
+    }
+    main #newsBoxEnclose {
+        margin-top: 0.5em;
+        display: flex;
+        width: 61vw;
+        overflow-x: scroll;
+    }
+    main .newsBox {
+        padding: 3vmin;
+        text-align: center;
+        /* コレをつけるとボックスが縮まない */
+        flex-shrink: 0;
+        width: 20vh;
+        height: 20vh;
+        margin-right: 1em;
+        background: #FFFFFF;
+        border-radius: 20px;
+    }
+    main .newsBox .date {
+        font-weight: bold;
+        font-size: 2.4vmin;
+    }
+    main .newsBox .description {
+        font-size: 2vmin;
+        margin-top: 3vmin;
+        color: #555555;
+    }
+    main #general {
+        position: relative;
+        padding: 4vh;
+        padding-left: 3.5vw;
+        left: 39vw;
+        position: absolute;
+        width: 61vw;
+        height: 57vh;
+        top: 43vh;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 50px 0 0 50px;
+    }
+    main #general .generalImg {
+        z-index: 1;
+        position: absolute;
+        top: 7vh;
+        left: 2vw;
+        height: 50vmin;
+    }
+    main #general .generalImgBack {
+        z-index: 0;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 45vmin;
+        /* 半透明 */
+        opacity: 0.5;
+        /* ぼかす */
+        -ms-filter: blur(2px);
+        filter: blur(2px);
+    }
+    main #introBoxEnclose {
+        display: flex;
+        width: 96vw;
+        margin: calc(103vh - 75px) auto 2vw auto;
+    }
+    main .introBox {
+        display: flex;
+        align-items: center;
+        padding: 3vmax;
+        /* コレをつけるとボックスが縮まない */
+        flex-shrink: 0;
+        width: 47vw;
+        min-height: 250px;
+        margin-top: 2vw;
+        margin-right: 2vw;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 40px;
+    }
+    main .introBox .introTitle {
+        height: 2.5vmax;
+        margin-bottom: 2vh;
+    }
+    main .introBox p {
+        color: #333333;
+        margin-bottom: 0;
+    }
+    main .introBox .sample {
+        margin-left: 1vw;
+        width: 20vw;
+    }
+    main #QandA {
+        width: 96vw;
+        margin: 2vw auto 2vw auto;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 50px;
+        padding: 5% 8% 5% 8%;
+    }
+    #QandA h1 {
+        font-size: 2.2em;
+        font-weight: bold;
+        margin-top: 1%;
+        margin-bottom: 2%;
+    }
+    #QandA p {
+        color: #333333;
+        line-height: 2em;
+    }
+    footer {
+        width: 100%;
+        padding: 1%;
+        color: #dddddd;
+        background-color: #555555;
+    }
+}
+@media screen and (max-width: 999px) {
+    #blogContents p, #contents p  {
+        color: #333333;
+        line-height: 1.7em;
+    }
+    /* Contents */
+    #contents {
+        margin: 2% auto 2% auto;
+        width: 96%;
+        padding: 5%;
+
+        min-height: 100vh;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px;
+    }
+    /* Blog */
+    #blogWrapper {
+        width: 96%;
+        margin: 2% auto 2% auto;
+    }
+    #blogContents {
+        min-height: 50vh;
+        width: 100%;
+        padding: 5%;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px;
+    }
+    #blogSideBar {
+        margin-top: 2%;
+        padding: 5%;
+        width: 100%;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px;
+    }
+    #blogAuthor {
+        text-align: center;
+        font-weight: bold;
+    }
+    #blogIcon {
+        width: 25%;
+        margin: auto;
+    }
+    #blogIcon img {
+        width: 80%;
+        margin: 10%;
+    }
+    hr {
+        
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+    #blogNewArticles {
+        padding-top: 0.5em;
+    }
+    #blogNewArticles .blogNewArticlesTitle {
+        color: #000000;
+        margin-top: 0.2em;
+        margin-bottom: 1em;
+    }
+    #blogNewArticle a {
+        color: #000000;
+    }
+}
+@media screen and (min-width: 1000px) {
+    #blogContents p, #contents p {
+        color: #333333;
+        line-height: 2em;
+    }
+    /* Contents */
+    #contents {
+        width: 85%;
+        min-height: 100vh;
+        margin: 2% auto 2% auto;
+        padding: 5% 10% 5% 10%;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px;
+    }
+    /* Blog */
+    #blogWrapper {
+        /* flexの高さが揃わないように */
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        display: flex;
+        width: 85%;
+        margin: 2% auto 2% auto;
+    }
+    #blogContents {
+        min-height: 100vh;
+        width: 70%;
+        padding: 5%;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px;
+    }
+    #blogSideBar {
+        padding: 4%;
+        width: 28%;
+        margin-left: 2%;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px;
+    }
+    #blogAuthor {
+        text-align: center;
+        font-weight: bold;
+    }
+    #blogIcon {
+        width: 50%;
+        margin: auto;
+    }
+    #blogIcon img {
+        width: 80%;
+        margin: 10%;
+    }
+    hr {
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+    #blogNewArticles {
+        padding-top: 0.5em;
+    }
+    #blogNewArticles .blogNewArticlesTitle {
+        color: #333333;
+        margin-top: 0.2em;
+        margin-bottom: 1em;
+    }
+}
+@media screen and (min-width: 1300px) {
+    main #introBoxEnclose {
+        display: flex;
+        width: 96vw;
+        margin: calc(103vh - 75px) auto 2vw auto;
+    }
+    main .introBoxWrapper {
+        display: flex;
+        width: 100vw;
+    }
+    main .introBox {
+        display: block;
+        padding: 2.5vmax;
+        /* コレをつけるとボックスが縮まない */
+        flex-shrink: 0;
+        margin-right: 2vw;
+        width: 22.5vw;
+        height: auto;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 50px;
+    }
+    main .introBox .introTitle {
+        height: 27px;
+        margin-bottom: 2vh;
+    }
+    main .introBox p {
+        color: #333333;
+        margin-bottom: 2vh;
+    }
+    main .introBox .sample {
+        width: 17.5vw;
+        margin-left: 0;
+    }
+    main .introBox iframe {
+        height: 11vw;
+    }
+    .background_lightBlue2 {
+        z-index: -5;
+        position: absolute;
+        width: 1365px;
+        height: 30vw;
+        left: 216px;
+        top: 160vh;
+        background: #05C0FF;
+        border-radius: 100px;
+    }
+}
