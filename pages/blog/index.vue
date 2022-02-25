@@ -31,13 +31,20 @@
         {{ top.nav.joinus.title }}
       </NuxtLink>
     </nav>
-
     <main>
       <div id="blogWrapper">
-        <div id="blogContents" class="link-decoration">
-          <p>{{ new Date(blog.publishedAt).toLocaleDateString() }}</p>
-          <h1>{{ blog.title }}</h1>
-          <p v-html="blog.body" />
+        <div id="blogIndex" class="link-decoration">
+          <p />
+          <h1>記事一覧</h1>
+          <NuxtLink v-for="i in blogall" :key="i.id" :to="'/blog/' + i.id" class="blogall_box">
+            <p class="blogall_date">
+              {{ new Date(i.publishedAt).toLocaleDateString() }}
+            </p>
+            <p class="blogall_title">
+              {{ i.title }}
+            </p>
+          </NuxtLink>
+          <p />
         </div>
         <div id="blogSideBar">
           <h3>Author</h3>
@@ -47,10 +54,10 @@
             </div>
             <p>デジタルコンテンツ研究会</p>
           </div>
-          <hr>
+          <span class="line" />
           <h3>新着記事</h3>
           <div id="blogNewArticles" class="link-black">
-            <div v-for="i in blogall" :key="i.id">
+            <div v-for="i in blogNew" :key="i.id">
               <p class="blogNewArticlesDate">
                 {{ new Date(i.publishedAt).toLocaleDateString() }}
               </p>
@@ -61,18 +68,19 @@
               </p>
             </div>
           </div>
+          <NuxtLink :to="'/blog/'" class="link newsLink">
+            >> 一覧はこちら
+          </NuxtLink>
         </div>
       </div>
     </main>
-    <footer v-html="top.footer.body"></footer>
+    <footer v-html="top.footer.body" />
   </div>
 </template>
-
 <script>
 import axios from 'axios'
 export default {
-  async asyncData ({ params }) {
-    const slug = params.slug
+  async asyncData () {
     const res = await Promise.all([
       axios.get(
         'https://tcu-dc.microcms.io/api/v1/top',
@@ -81,21 +89,22 @@ export default {
       axios.get(
         'https://tcu-dc.microcms.io/api/v1/blog/',
         { headers: { 'X-MICROCMS-API-KEY': 'cce632607ed24373acc3e0ba0be10e180d71' } }
-      ),
-      axios.get(
-        'https://tcu-dc.microcms.io/api/v1/blog/' + slug,
-        { headers: { 'X-MICROCMS-API-KEY': 'cce632607ed24373acc3e0ba0be10e180d71' } }
       )
     ])
     return {
       top: res[0].data,
-      blogall: res[1].data.contents,
-      blog: res[2].data
+      blogall: res[1].data.contents
     }
   },
   head () {
     return {
-      title: this.blog.title
+      title: '記事一覧'
+    }
+  },
+  computed: {
+    blogNew () {
+      /* (0, {表示させたい記事の数}) */
+      return this.blogall.slice(0, 5)
     }
   }
 }

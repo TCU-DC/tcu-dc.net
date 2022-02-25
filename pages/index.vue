@@ -3,8 +3,6 @@
     <div class="background_pink" />
     <div class="background_lightBlue" />
     <div class="background_blue" />
-    <div class="background_purple" />
-    <div class="background_lightBlue2" />
     <nav>
       <NuxtLink to="/">
         <h1><img id="logo" src="~assets/svg/logo.svg" alt="東京都市大学デジタルコンテンツ研究会"></h1>
@@ -37,9 +35,7 @@
       <div id="welcome">
         <h2><img src="~assets/svg/kitare.svg" alt="来たれ！デジコン"></h2>
         <h4><img src="~assets/svg/maishu.svg" alt="毎週金曜日21:00〜 Discordで活動"></h4>
-        <p>
-          <span v-html="top.welcome.body" />
-        </p>
+        <p v-html="top.welcome.body" />
         <div class="welcomeIntroWrapper">
           <a href="#illust" class="welcomeIntroContnts welcomeIllust">{{ top.teams.team1 }}</a>
           <a href="#movie" class="welcomeIntroContnts welcomeMovie">{{ top.teams.team2 }}</a>
@@ -51,9 +47,9 @@
       </div>
       <div id="news">
         <h3><img src="~assets/svg/news.svg" alt="News"></h3>
-        <span class="link"><a href="#" class="newsLink">>> 一覧</a></span>
+        <span class="link"><NuxtLink to="/blog/" class="newsLink">>> 一覧</NuxtLink></span>
         <div id="newsBoxEnclose">
-          <NuxtLink v-for="i in blog" :key="i.id" :to="'/blog/' + i.id" class="newsBox">
+          <NuxtLink v-for="i in blogNew" :key="i.id" :to="'/blog/' + i.id" class="newsBox">
             <p class="date">
               {{ new Date(i.publishedAt).toLocaleDateString() }}
             </p>
@@ -122,10 +118,9 @@
         <span v-html="top.qanda.body" />
       </div>
     </main>
-    <footer v-html="top.footer.body"></footer>
+    <footer v-html="top.footer.body" />
   </div>
 </template>
-
 <script>
 import axios from 'axios'
 export default {
@@ -149,6 +144,12 @@ export default {
     return {
       title: '東京都市大学デジタルコンテンツ研究会',
       titleTemplate: ''
+    }
+  },
+  computed: {
+    blogNew () {
+      /* (0, {表示させたい記事の数}) */
+      return this.blog.slice(0, 10)
     }
   }
 }

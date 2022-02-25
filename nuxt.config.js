@@ -16,14 +16,14 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: './favicon.ico' },
-      { rel: 'stylesheet', type: 'text/css', href: './style.css' },
-      { rel: 'stylesheet', type: 'text/css', href: './destyle.min.css' },
       { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap' }
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/css/destyle.css',
+    '~/assets/css/style.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -55,7 +55,7 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en'
+      lang: 'ja'
     }
   },
 

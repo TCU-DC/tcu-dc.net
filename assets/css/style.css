@@ -25,40 +25,31 @@ a.link-decoration:visited, .link-decoration a:visited {
 #blogWrapper iframe, #contents iframe {
     width: 100%;
 }
-#blogWrapper h1, #contents h1 {
-    font-size: 2.5em;
-    font-weight: bold;
-    margin-bottom: 1%;
-}
-#blogWrapper h2, #contents h2 {
-    font-size: 1.8em;
-    font-weight: bold;
-    margin-top: 3%;
-    margin-bottom: 1%;
-}
-#blogWrapper h3, #contents h3 {
-    font-size: 1.3em;
-    font-weight: bold;
-    margin-top: 3%;
-    margin-bottom: 1%;
-}
+/*
 main img {
-    /* 画像を選択させない */
     pointer-events: none;
 }
+*/
 #news img {
     margin-right: 0.5em;
 }
 #news h3 {
     display: inline;
 }
+.line {
+    width: 90%;    
+    display: block;
+    border-bottom: 1px solid #000000;
+    margin: 10% auto;
+}
 .newsLink {
     font-size: 0.9em;
 }
-.link a {
+.link a, a.link {
 	position: relative;
+    text-decoration: none;
 }
-.link a:after {
+.link a:after, a.link:after {
 	content: '';
 	background: rgba(0, 0, 0, .5);
 	position: absolute;
@@ -70,7 +61,10 @@ main img {
 	height: 1px;
 	width: 100%;
 }
-.link a:hover:after {
+.link a:hover, a.link:hover {
+    text-decoration: none !important;
+}
+.link a:hover:after, a.link:hover:after {
 	transform: scaleX(1);
 	transform-origin: left;
 }
@@ -109,7 +103,6 @@ main .welcomeIntroContnts:hover {
 #newsBoxEnclose::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.5);
 }
-
 main #welcome .welcomeIllust {
     background: #05C0FF;
 }
@@ -121,6 +114,27 @@ main #welcome .welcomeDTM {
 }
 main #welcome .welcomeProgramming {
     background: #0070D9;
+}
+#blogContents img, #contents img {
+    max-width: 90%;
+}
+.blogall_box {
+    display: block;
+    margin: 2% 1%;
+    padding: 3%;
+    border: 0.5px solid gray;
+    border-radius: 5px;
+}
+.blogall_box:hover {
+    transition: all 0.2s;
+    background: #f5f5f5;
+}
+a.blogall_box, a.blogall_box:hover {
+    text-decoration: none;
+}
+.blogall_date {
+    color: #555555;
+    margin-bottom: 1%;
 }
 @media screen and (max-width: 750px) {
     nav {
@@ -218,7 +232,7 @@ main #welcome .welcomeProgramming {
         padding: 5vmax 4vmax 2vmax 4vmax;
         width: 96%;
         background: #FFFFFF;
-        border-radius: 0 40px 40px 0;
+        border-radius: 0 30px 30px 0;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
     main #welcome img {
@@ -230,7 +244,7 @@ main #welcome .welcomeProgramming {
         color: #333333;
         font-weight: 500;
         line-height: 1.4em;
-        font-size: 0.9em;
+        font-size: 0.95em;
         margin-top: 1vh;
         margin-bottom: 3vh;
     }
@@ -246,7 +260,7 @@ main #welcome .welcomeProgramming {
         padding: 4.5vmax 0;
         width: 50vmax;
         height: 12vmax;
-        border-radius: 20px;
+        border-radius: 15px;
     }
     main #news {
         margin-top: 5%;
@@ -283,7 +297,7 @@ main #welcome .welcomeProgramming {
         margin-left: 5%;
         width: 96%;
         background: #FFFFFF;
-        border-radius: 40px 0 0 40px;
+        border-radius: 30px 0 0 30px;
         padding: 5%;
         padding-bottom: 3vmin;
     }
@@ -304,12 +318,12 @@ main #welcome .welcomeProgramming {
     }
     main .introBox:nth-child(odd) {
         padding: 8%;
-        border-radius: 0 40px 40px 0;
+        border-radius: 0 30px 30px 0;
     }
     main .introBox:nth-child(even) {
         padding: 8%;
         margin-left: 5%;
-        border-radius: 40px 0 0 40px;
+        border-radius: 30px 0 0 30px;
     }
     main .introBox .introTitle {
         height: 27px;
@@ -330,10 +344,9 @@ main #welcome .welcomeProgramming {
         margin-top: 5%;
         width: 96%;
         padding: 8%;
-        border-radius: 0 40px 40px 0;
+        border-radius: 0 30px 30px 0;
         background: #FFFFFF;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        padding: 8%;
     }
     #QandA h1 {
         font-size: 1.8em;
@@ -428,6 +441,7 @@ main #welcome .welcomeProgramming {
         top: 180px;
         background: #0070D9;
     }
+    /*
     .background_purple {
         z-index: -6;
         position: absolute;
@@ -448,6 +462,7 @@ main #welcome .welcomeProgramming {
         background: #05C0FF;
         border-radius: 100px;
     }
+    */
     main {
         padding-top: 75px;
     }
@@ -461,15 +476,13 @@ main #welcome .welcomeProgramming {
         width: 35vw;
         height: 82vh;
         background: #FFFFFF;
-        border-radius: 50px;
+        border-radius: 30px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 50px;
     }
     main #welcome img {
         /*min-width: 230px;*/
         width: 25vmax;
         margin-bottom: 2vh;
-
     }
     main #welcome p {
         color: #333333;
@@ -490,7 +503,7 @@ main #welcome .welcomeProgramming {
         padding: 6vmin 0;
         width: 15vw;
         height: 15vh;
-        border-radius: 25px;
+        border-radius: 20px;
     }
     /* スクロールバーを消す */
     #welcome::-webkit-scrollbar {
@@ -542,7 +555,7 @@ main #welcome .welcomeProgramming {
         top: 43vh;
         background: #FFFFFF;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 50px 0 0 50px;
+        border-radius: 30px 0 0 30px;
     }
     main #general .generalImg {
         z-index: 1;
@@ -580,7 +593,7 @@ main #welcome .welcomeProgramming {
         margin-right: 2vw;
         background: #FFFFFF;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 40px;
+        border-radius: 30px;
     }
     main .introBox .introTitle {
         height: 2.5vmax;
@@ -599,7 +612,7 @@ main #welcome .welcomeProgramming {
         margin: 2vw auto 2vw auto;
         background: #FFFFFF;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 50px;
+        border-radius: 30px;
         padding: 5% 8% 5% 8%;
     }
     #QandA h1 {
@@ -620,8 +633,34 @@ main #welcome .welcomeProgramming {
     }
 }
 @media screen and (max-width: 999px) {
+    #blogWrapper h1, #contents h1, #blogIndex h1 {
+        font-size: 2.2em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+    #blogWrapper h2, #contents h2 {
+        font-size: 1.8em;
+        font-weight: bold;
+        margin-top: 3%;
+        margin-bottom: 0.5em;
+    }
+    #blogWrapper h3, #contents h3 {
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-top: 3%;
+        margin-bottom: 0.5em;
+    }
     #blogContents p, #contents p  {
         color: #333333;
+        line-height: 1.7em;
+    }
+    #blogContents br, #contents br {
+        display: block;
+        content: "";
+        margin: 1em 0;
+    }
+    .blogblogContentsDate {
+        color: #555555;
         line-height: 1.7em;
     }
     /* Contents */
@@ -629,8 +668,7 @@ main #welcome .welcomeProgramming {
         margin: 2% auto 2% auto;
         width: 96%;
         padding: 5%;
-
-        min-height: 100vh;
+        min-height: calc(100vh - 75px);
         background: #FFFFFF;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 25px;
@@ -641,12 +679,15 @@ main #welcome .welcomeProgramming {
         margin: 2% auto 2% auto;
     }
     #blogContents {
-        min-height: 50vh;
+        min-height: calc(50vh - 75px);
         width: 100%;
         padding: 5%;
         background: #FFFFFF;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 25px;
+    }
+    #blogFooter {
+        display: none;
     }
     #blogSideBar {
         margin-top: 2%;
@@ -668,13 +709,11 @@ main #welcome .welcomeProgramming {
         width: 80%;
         margin: 10%;
     }
-    hr {
-        
-        margin-top: 2em;
-        margin-bottom: 2em;
-    }
     #blogNewArticles {
         padding-top: 0.5em;
+    }
+    #blogNewArticles .blogNewArticlesDate {
+        color: #555555;
     }
     #blogNewArticles .blogNewArticlesTitle {
         color: #000000;
@@ -684,16 +723,55 @@ main #welcome .welcomeProgramming {
     #blogNewArticle a {
         color: #000000;
     }
+    #blogIndex {
+        min-height: 50vh;
+        width: 100%;
+        padding: 5%;
+        background: #ffffff;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px;
+    }
+    .blogall_title {
+        color: black;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
 }
 @media screen and (min-width: 1000px) {
+    #blogWrapper h1, #contents h1, #blogIndex h1 {
+        font-size: 2.5em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+    #blogWrapper h2, #contents h2 {
+        font-size: 1.8em;
+        font-weight: bold;
+        margin-top: 3%;
+        margin-bottom: 0.5em;
+    }
+    #blogWrapper h3, #contents h3 {
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-top: 3%;
+        margin-bottom: 0.5em;
+    }
     #blogContents p, #contents p {
         color: #333333;
         line-height: 2em;
     }
+    #blogContents br, #contents br {
+        display: block;
+        content: "";
+        margin: 1em 0;
+    }
+    .blogblogContentsDate {
+        color: #555555;
+        line-height: 1.7em;
+    }
     /* Contents */
     #contents {
         width: 85%;
-        min-height: 100vh;
+        min-height: calc(100vh - 75px);
         margin: 2% auto 2% auto;
         padding: 5% 10% 5% 10%;
         background: #FFFFFF;
@@ -710,13 +788,26 @@ main #welcome .welcomeProgramming {
         width: 85%;
         margin: 2% auto 2% auto;
     }
-    #blogContents {
-        min-height: 100vh;
+    #blogDoc {
         width: 70%;
+    }
+    #blogContents {
+        min-height: calc(60vh - 75px);
         padding: 5%;
         background: #FFFFFF;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 25px;
+    }
+    #blogFooter {
+        margin-top: 2%;
+        padding: 5%;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px;
+    }
+    #blogFooter h3 {
+        margin-top: 0;
+        margin-bottom: 1em;
     }
     #blogSideBar {
         padding: 4%;
@@ -738,17 +829,32 @@ main #welcome .welcomeProgramming {
         width: 80%;
         margin: 10%;
     }
-    hr {
-        margin-top: 2em;
-        margin-bottom: 2em;
-    }
     #blogNewArticles {
         padding-top: 0.5em;
     }
-    #blogNewArticles .blogNewArticlesTitle {
+    .blogNewArticlesDate {
+        color: #555555;
+    }
+    .blogNewArticlesTitle {
         color: #333333;
         margin-top: 0.2em;
         margin-bottom: 1em;
+    }
+    .blogNewArticlesTitle:hover {
+        text-decoration: underline;
+    }
+    #blogIndex {
+        min-height: 50vh;
+        width: 70%;
+        padding: 5%;
+        background: #fff;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px;
+    }
+    .blogall_title {
+        color: black;
+        font-size: 1.5em;
+        font-weight: 500;
     }
 }
 @media screen and (min-width: 1300px) {
@@ -771,7 +877,7 @@ main #welcome .welcomeProgramming {
         height: auto;
         background: #FFFFFF;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 50px;
+        border-radius: 30px;
     }
     main .introBox .introTitle {
         height: 27px;

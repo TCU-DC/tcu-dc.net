@@ -37,10 +37,9 @@
         <p v-html="page.body" />
       </div>
     </main>
-    <footer v-html="top.footer.body"></footer>
+    <footer v-html="top.footer.body" />
   </div>
 </template>
-
 <script>
 import axios from 'axios'
 export default {
