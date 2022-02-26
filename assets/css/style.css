@@ -10,6 +10,14 @@ body {
     /* 背景を画像に見せかけることで画面外の背景色は白になる */
     background-image: linear-gradient(to bottom, #EF5DA8, #EF5DA8);
 }
+main ul {
+    list-style: square;
+    margin-left: 2em;
+}
+main ol {
+    list-style-type: decimal;
+    margin-left: 2em;
+}
 a.link-decoration, .link-decoration a {
     color: #0000EE;
     text-decoration: underline;
@@ -136,7 +144,7 @@ a.blogall_box, a.blogall_box:hover {
     color: #555555;
     margin-bottom: 1%;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 850px) {
     nav {
         z-index: 10;
         text-align: right;
@@ -273,7 +281,7 @@ a.blogall_box, a.blogall_box:hover {
         overflow-x: scroll;
     }
     main .newsBox {
-        padding: 3vmax;
+        padding: 25px;
         text-align: center;
         /* コレをつけるとボックスが縮まない */
         flex-shrink: 0;
@@ -288,7 +296,7 @@ a.blogall_box, a.blogall_box:hover {
         font-weight: bold;
     }
     main .newsBox .description {
-        margin-top: 4vmin;
+        margin-top: 15px;
         color: #333333;
     }
     main #general {
@@ -348,15 +356,6 @@ a.blogall_box, a.blogall_box:hover {
         background: #FFFFFF;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
-    #QandA h1 {
-        font-size: 1.8em;
-        font-weight: bold;
-        margin-bottom: 5%;
-    }
-    #QandA p {
-        color: #333333;
-        line-height: 1.5em;
-    }
     footer {
         margin-top: 5%;
         height: 100px;
@@ -366,7 +365,7 @@ a.blogall_box, a.blogall_box:hover {
         background-color: #555555;
     }
 }
-@media screen and (min-width: 751px) {
+@media screen and (min-width: 851px) {
     nav {
         z-index: 10;
         text-align: right;
@@ -579,7 +578,7 @@ a.blogall_box, a.blogall_box:hover {
     main #introBoxEnclose {
         display: flex;
         width: 96vw;
-        margin: calc(103vh - 75px) auto 2vw auto;
+        margin: calc(100vh - 75px) auto 2vw auto;
     }
     main .introBox {
         display: flex;
@@ -613,17 +612,7 @@ a.blogall_box, a.blogall_box:hover {
         background: #FFFFFF;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 30px;
-        padding: 5% 8% 5% 8%;
-    }
-    #QandA h1 {
-        font-size: 2.2em;
-        font-weight: bold;
-        margin-top: 1%;
-        margin-bottom: 2%;
-    }
-    #QandA p {
-        color: #333333;
-        line-height: 2em;
+        padding: 5% 15% 5% 15%;
     }
     footer {
         width: 100%;
@@ -633,28 +622,43 @@ a.blogall_box, a.blogall_box:hover {
     }
 }
 @media screen and (max-width: 999px) {
-    #blogWrapper h1, #contents h1, #blogIndex h1 {
+    main #QandA {
+        padding: 5% 10% 5% 10%;
+    }
+    #blogWrapper h1, #contents h1, #QandA h1 , #blogIndex h1 {
         font-size: 2.2em;
         font-weight: bold;
         margin-bottom: 0.5em;
     }
-    #blogWrapper h2, #contents h2 {
+    #blogWrapper h2, #contents h2, #QandA h2 {
         font-size: 1.8em;
         font-weight: bold;
         margin-top: 3%;
         margin-bottom: 0.5em;
     }
-    #blogWrapper h3, #contents h3 {
+    #blogWrapper h3, #contents h3, #QandA h3 {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-top: 3%;
+        margin-bottom: 0.5em;
+    }
+    #blogWrapper h4, #contents h4, #QandA h4 {
         font-size: 1.3em;
         font-weight: bold;
         margin-top: 3%;
         margin-bottom: 0.5em;
     }
-    #blogContents p, #contents p  {
+    #blogWrapper h5, #contents h5, #QandA h5 {
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-top: 3%;
+        margin-bottom: 0.5em;
+    }
+    #blogContents p, #contents p, #QandA p  {
         color: #333333;
         line-height: 1.7em;
     }
-    #blogContents br, #contents br {
+    #blogContents br, #contents br, #QandA br {
         display: block;
         content: "";
         margin: 1em 0;
@@ -724,7 +728,7 @@ a.blogall_box, a.blogall_box:hover {
         color: #000000;
     }
     #blogIndex {
-        min-height: 50vh;
+        min-height: calc(50vh - 75px);
         width: 100%;
         padding: 5%;
         background: #ffffff;
@@ -738,28 +742,40 @@ a.blogall_box, a.blogall_box:hover {
     }
 }
 @media screen and (min-width: 1000px) {
-    #blogWrapper h1, #contents h1, #blogIndex h1 {
+    #blogWrapper h1, #contents h1, #QandA h1 , #blogIndex h1 {
         font-size: 2.5em;
         font-weight: bold;
         margin-bottom: 0.5em;
     }
-    #blogWrapper h2, #contents h2 {
+    #blogWrapper h2, #contents h2, #QandA h2 {
         font-size: 1.8em;
         font-weight: bold;
         margin-top: 3%;
         margin-bottom: 0.5em;
     }
-    #blogWrapper h3, #contents h3 {
+    #blogWrapper h3, #contents h3, #QandA h3 {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-top: 3%;
+        margin-bottom: 0.5em;
+    }
+    #blogWrapper h4, #contents h4, #QandA h4 {
         font-size: 1.3em;
         font-weight: bold;
         margin-top: 3%;
         margin-bottom: 0.5em;
     }
-    #blogContents p, #contents p {
+    #blogWrapper h5, #contents h5, #QandA h5 {
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-top: 3%;
+        margin-bottom: 0.5em;
+    }
+    #blogContents p, #contents p, #QandA p {
         color: #333333;
         line-height: 2em;
     }
-    #blogContents br, #contents br {
+    #blogContents br, #contents br, #QandA br {
         display: block;
         content: "";
         margin: 1em 0;
@@ -844,7 +860,7 @@ a.blogall_box, a.blogall_box:hover {
         text-decoration: underline;
     }
     #blogIndex {
-        min-height: 50vh;
+        min-height: calc(100vh - 75px);
         width: 70%;
         padding: 5%;
         background: #fff;
@@ -858,6 +874,9 @@ a.blogall_box, a.blogall_box:hover {
     }
 }
 @media screen and (min-width: 1300px) {
+    main #QandA {
+        padding: 5% 20% 5% 20%;
+    }
     main #introBoxEnclose {
         display: flex;
         width: 96vw;

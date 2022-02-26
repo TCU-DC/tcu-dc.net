@@ -22,7 +22,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/css/destyle.css',
+    '~/assets/css/destyle.min.css',
     '~/assets/css/style.css'
   ],
 

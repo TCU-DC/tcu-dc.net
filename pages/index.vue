@@ -69,16 +69,16 @@
           <div id="illust" class="introBox">
             <div>
               <h3><img class="introTitle" src="~assets/svg/illust.svg" alt="イラスト班"></h3>
-              <p>{{ top.teams.team1_desc }}</p>
+              <p v-html="top.teams.team1_desc" />
             </div>
             <div>
-              <img class="sample" src="~assets/webp/dtm_sample.webp" alt="">
+              <img class="sample" src="~assets/webp/illust_intro.webp" alt="">
             </div>
           </div>
           <div id="movie" class="introBox">
             <div>
               <h3><img class="introTitle" src="~assets/svg/movie.svg" alt="動画班"></h3>
-              <p>{{ top.teams.team2_desc }}</p>
+              <p v-html="top.teams.team2_desc" />
             </div>
             <div>
               <iframe
@@ -96,19 +96,28 @@
           <div id="DTM" class="introBox">
             <div>
               <h3><img class="introTitle" src="~assets/svg/dtm.svg" alt="DTM班"></h3>
-              <p>{{ top.teams.team3_desc }}</p>
+              <p v-html="top.teams.team3_desc" />
             </div>
             <div>
-              <img class="sample" src="~assets/webp/dtm_sample.webp" alt="">
+              <img class="sample" src="~assets/webp/dtm_intro.webp" alt="">
+              <!--
+              <iframe
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/156460452&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"
+                width="100%"
+                height="auto"
+                frameborder="no"
+                scrolling="no"
+              />
+              -->
             </div>
           </div>
           <div id="programming" class="introBox">
             <div>
               <h3><img class="introTitle" src="~assets/svg/programming.svg" alt="プログラミング班"></h3>
-              <p>{{ top.teams.team4_desc }}</p>
+              <p v-html="top.teams.team4_desc" />
             </div>
             <div>
-              <img class="sample" src="~assets/webp/dtm_sample.webp" alt="">
+              <img class="sample" src="~assets/webp/programming_intro.webp" alt="">
             </div>
           </div>
         </div>
