@@ -114,7 +114,13 @@ export default {
   },
   head () {
     return {
-      title: this.blog.title
+      title: this.blog.title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.blog.description },
+        { hid: 'og:title', property: 'og:title', content: this.blog.title },
+        { hid: 'og:image', property: 'og:image', content: this.blog.img.url },
+        { hid: 'og:description', property: 'og:description', content: this.blog.description }
+      ]
     }
   },
   computed: {

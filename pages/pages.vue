@@ -83,7 +83,10 @@ export default {
     return {
       title: '固定ページ一覧',
       meta: [
-        { hid: 'robots', name: 'robots', content: 'noindex, follow' }
+        { hid: 'robots', name: 'robots', content: 'noindex, follow' },
+        { hid: 'description', name: 'description', content: '東京都市大学デジタルコンテンツ研究会の固定ページ一覧です。' },
+        { hid: 'og:title', property: 'og:title', content: '固定ページ一覧' },
+        { hid: 'og:description', property: 'og:description', content: '東京都市大学デジタルコンテンツ研究会の固定ページ一覧です。' }
       ]
     }
   }

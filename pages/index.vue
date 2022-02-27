@@ -152,7 +152,13 @@ export default {
   head () {
     return {
       title: '東京都市大学デジタルコンテンツ研究会',
-      titleTemplate: ''
+      titleTemplate: '',
+      meta: [
+        { hid: 'og:type', property: 'og:type', content: 'website' },
+        { hid: 'description', name: 'description', content: this.top.description },
+        { hid: 'og:title', property: 'og:title', content: '東京都市大学デジタルコンテンツ研究会' },
+        { hid: 'og:description', property: 'og:description', content: this.top.description }
+      ]
     }
   },
   computed: {

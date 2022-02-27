@@ -11,11 +11,18 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { hid: 'description', name: 'description', content: '東京都市大学デジタルコンテンツ研究会の公式ウェブサイトです。' },
+      { name: 'format-detection', content: 'telephone=no' },
+      { hid: 'og:type', property: 'og:type', content: 'article' },
+      { hid: 'og:locale', property: 'og:locale', content: 'ja_JP' },
+      { hid: 'og:site_name', property: 'og:site_name', content: '東京都市大学デジタルコンテンツ研究会' },
+      { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+      { hid: 'og:title', property: 'og:title', content: '東京都市大学デジタルコンテンツ研究会' },
+      { hid: 'og:image', property: 'og:image', content: 'https://tcu-dc.net/ogp.png' },
+      { hid: 'og:description', property: 'og:description', content: '東京都市大学デジタルコンテンツ研究会の公式ウェブサイトです。' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: './favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap' }
     ]
   },

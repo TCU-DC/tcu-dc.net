@@ -98,7 +98,12 @@ export default {
   },
   head () {
     return {
-      title: '記事一覧'
+      title: '記事一覧',
+      meta: [
+        { hid: 'description', name: 'description', content: '東京都市大学デジタルコンテンツ研究会の記事一覧ページです。' },
+        { hid: 'og:title', property: 'og:title', content: '記事一覧' },
+        { hid: 'og:description', property: 'og:description', content: '東京都市大学デジタルコンテンツ研究会の記事一覧ページです。' }
+      ]
     }
   },
   computed: {
