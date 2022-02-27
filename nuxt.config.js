@@ -45,18 +45,16 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/google-gtag'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
-  pwa: {
-    manifest: {
-      lang: 'ja'
-    }
+  'google-gtag': {
+    id: process.env.GTAG_KEY,
+    debug: false // Enable to track in dev mode.
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

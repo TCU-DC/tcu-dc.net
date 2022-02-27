@@ -95,15 +95,15 @@ export default {
     const res = await Promise.all([
       axios.get(
         'https://tcu-dc.microcms.io/api/v1/top',
-        { headers: { 'X-MICROCMS-API-KEY': 'cce632607ed24373acc3e0ba0be10e180d71' } }
+        { headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY } }
       ),
       axios.get(
         'https://tcu-dc.microcms.io/api/v1/blog/',
-        { headers: { 'X-MICROCMS-API-KEY': 'cce632607ed24373acc3e0ba0be10e180d71' } }
+        { headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY } }
       ),
       axios.get(
         'https://tcu-dc.microcms.io/api/v1/blog/' + slug,
-        { headers: { 'X-MICROCMS-API-KEY': 'cce632607ed24373acc3e0ba0be10e180d71' } }
+        { headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY } }
       )
     ])
     return {
