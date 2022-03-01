@@ -3,34 +3,7 @@
     <div class="background_pink" />
     <div class="background_lightBlue" />
     <div class="background_blue" />
-    <nav>
-      <NuxtLink to="/">
-        <h1><img id="logo" src="~assets/svg/logo.svg" alt="東京都市大学デジタルコンテンツ研究会"></h1>
-      </NuxtLink>
-      <ul>
-        <li>
-          <NuxtLink :to="'/' + top.nav.link1.id">
-            {{ top.nav.link1.title }}<br>
-            <span class="sub">{{ top.nav.link1.id }}</span>
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink :to="'/' + top.nav.link2.id">
-            {{ top.nav.link2.title }}<br>
-            <span class="sub">{{ top.nav.link2.id }}</span>
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink :to="'/' + top.nav.link3.id">
-            {{ top.nav.link3.title }}<br>
-            <span class="sub">{{ top.nav.link3.id }}</span>
-          </NuxtLink>
-        </li>
-      </ul>
-      <NuxtLink :to="'/' + top.nav.joinus.id" class="button">
-        {{ top.nav.joinus.title }}
-      </NuxtLink>
-    </nav>
+    <Navbar :contents="top" />
     <main>
       <div id="welcome">
         <h2><img src="~assets/svg/kitare.svg" alt="来たれ！デジコン"></h2>
@@ -47,9 +20,9 @@
       </div>
       <div id="news">
         <h3><img src="~assets/svg/news.svg" alt="News"></h3>
-        <span class="link"><NuxtLink to="/blog/" class="newsLink">>> 一覧</NuxtLink></span>
+        <span class="link"><NuxtLink to="/posts/" class="newsLink">>> 一覧</NuxtLink></span>
         <div id="newsBoxEnclose">
-          <NuxtLink v-for="i in blogNew" :key="i.id" :to="'/blog/' + i.id" class="newsBox">
+          <NuxtLink v-for="i in blogNew" :key="i.id" :to="'/posts/' + i.id" class="newsBox">
             <p class="date">
               {{ new Date(i.publishedAt).toLocaleDateString() }}
             </p>
@@ -100,15 +73,6 @@
             </div>
             <div>
               <img class="sample" src="~assets/webp/dtm_intro.webp" alt="">
-              <!--
-              <iframe
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/156460452&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"
-                width="100%"
-                height="auto"
-                frameborder="no"
-                scrolling="no"
-              />
-              -->
             </div>
           </div>
           <div id="programming" class="introBox">
@@ -132,7 +96,11 @@
 </template>
 <script>
 import axios from 'axios'
+import Navbar from '~/components/Navbar.vue'
 export default {
+  components: {
+    Navbar
+  },
   async asyncData () {
     const res = await Promise.all([
       axios.get(

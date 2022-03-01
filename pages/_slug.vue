@@ -3,34 +3,7 @@
     <div class="background_pink" />
     <div class="background_lightBlue" />
     <div class="background_blue" />
-    <nav>
-      <NuxtLink to="/">
-        <h1><img id="logo" src="~assets/svg/logo.svg" alt="東京都市大学デジタルコンテンツ研究会"></h1>
-      </NuxtLink>
-      <ul>
-        <li>
-          <NuxtLink :to="'/' + top.nav.link1.id">
-            {{ top.nav.link1.title }}<br>
-            <span class="sub">{{ top.nav.link1.id }}</span>
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink :to="'/' + top.nav.link2.id">
-            {{ top.nav.link2.title }}<br>
-            <span class="sub">{{ top.nav.link2.id }}</span>
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink :to="'/' + top.nav.link3.id">
-            {{ top.nav.link3.title }}<br>
-            <span class="sub">{{ top.nav.link3.id }}</span>
-          </NuxtLink>
-        </li>
-      </ul>
-      <NuxtLink :to="'/' + top.nav.joinus.id" class="button">
-        {{ top.nav.joinus.title }}
-      </NuxtLink>
-    </nav>
+    <Navbar :contents="top" />
     <main>
       <div id="contents" class="link-decoration">
         <h1>{{ page.title }}</h1>
@@ -42,7 +15,11 @@
 </template>
 <script>
 import axios from 'axios'
+import Navbar from '~/components/Navbar.vue'
 export default {
+  components: {
+    Navbar
+  },
   async asyncData ({ params }) {
     const slug = params.slug
     const res = await Promise.all([

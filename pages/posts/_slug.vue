@@ -3,34 +3,7 @@
     <div class="background_pink" />
     <div class="background_lightBlue" />
     <div class="background_blue" />
-    <nav>
-      <NuxtLink to="/">
-        <h1><img id="logo" src="~assets/svg/logo.svg" alt="東京都市大学デジタルコンテンツ研究会"></h1>
-      </NuxtLink>
-      <ul>
-        <li>
-          <NuxtLink :to="'/' + top.nav.link1.id">
-            {{ top.nav.link1.title }}<br>
-            <span class="sub">{{ top.nav.link1.id }}</span>
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink :to="'/' + top.nav.link2.id">
-            {{ top.nav.link2.title }}<br>
-            <span class="sub">{{ top.nav.link2.id }}</span>
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink :to="'/' + top.nav.link3.id">
-            {{ top.nav.link3.title }}<br>
-            <span class="sub">{{ top.nav.link3.id }}</span>
-          </NuxtLink>
-        </li>
-      </ul>
-      <NuxtLink :to="'/' + top.nav.joinus.id" class="button">
-        {{ top.nav.joinus.title }}
-      </NuxtLink>
-    </nav>
+    <Navbar :contents="top" />
     <main>
       <div id="blogWrapper">
         <div id="blogDoc">
@@ -46,42 +19,17 @@
                 {{ new Date(i.publishedAt).toLocaleDateString() }}
               </p>
               <p class="blogNewArticlesTitle">
-                <NuxtLink :to="'/blog/' + i.id">
+                <NuxtLink :to="'/posts/' + i.id">
                   {{ i.title }}
                 </NuxtLink>
               </p>
             </div>
-            <NuxtLink :to="'/blog/'" class="link newsLink">
+            <NuxtLink :to="'/posts/'" class="link newsLink">
               >> 一覧はこちら
             </NuxtLink>
           </div>
         </div>
-        <div id="blogSideBar">
-          <h3>Author</h3>
-          <div id="blogAuthor">
-            <div id="blogIcon">
-              <img src="~assets/svg/icon.svg" alt="アイコン">
-            </div>
-            <p>デジタルコンテンツ研究会</p>
-          </div>
-          <span class="line" />
-          <h3>新着記事</h3>
-          <div id="blogNewArticles" class="link-black">
-            <div v-for="i in blogNew" :key="i.id">
-              <p class="blogNewArticlesDate">
-                {{ new Date(i.publishedAt).toLocaleDateString() }}
-              </p>
-              <p class="blogNewArticlesTitle">
-                <NuxtLink :to="'/blog/' + i.id">
-                  {{ i.title }}
-                </NuxtLink>
-              </p>
-            </div>
-            <NuxtLink :to="'/blog/'" class="link newsLink">
-              >> 一覧はこちら
-            </NuxtLink>
-          </div>
-        </div>
+        <BlogSidebar :contents="blogall" />
       </div>
     </main>
     <footer v-html="top.footer.body" />
@@ -89,7 +37,13 @@
 </template>
 <script>
 import axios from 'axios'
+import Navbar from '~/components/Navbar.vue'
+import BlogSidebar from '~/components/BlogSidebar.vue'
 export default {
+  components: {
+    Navbar,
+    BlogSidebar
+  },
   async asyncData ({ params }) {
     const slug = params.slug
     const res = await Promise.all([
