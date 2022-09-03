@@ -7,22 +7,43 @@
     <main>
       <div id="welcome">
         <h2><img src="~assets/svg/kitare.svg" alt="来たれ！デジコン"></h2>
-        <h4><img src="~assets/svg/maishu.svg" alt="毎週金曜日21:00〜 Discordで活動"></h4>
+        <h4>
+          <img
+            src="~assets/svg/maishu.svg"
+            alt="毎週木曜日20:00〜 Discordで活動"
+          >
+        </h4>
         <p v-html="top.welcome.body" />
         <div class="welcomeIntroWrapper">
-          <a href="#illust" class="welcomeIntroContnts welcomeIllust">{{ top.teams.team1 }}</a>
-          <a href="#movie" class="welcomeIntroContnts welcomeMovie">{{ top.teams.team2 }}</a>
+          <a href="#illust" class="welcomeIntroContnts welcomeIllust">{{
+            top.teams.team1
+          }}</a>
+          <a href="#movie" class="welcomeIntroContnts welcomeMovie">{{
+            top.teams.team2
+          }}</a>
         </div>
         <div class="welcomeIntroWrapper">
-          <a href="#DTM" class="welcomeIntroContnts welcomeDTM">{{ top.teams.team3 }}</a>
-          <a href="#programming" class="welcomeIntroContnts welcomeProgramming">{{ top.teams.team4 }}</a>
+          <a href="#DTM" class="welcomeIntroContnts welcomeDTM">{{
+            top.teams.team3
+          }}</a>
+          <a
+            href="#programming"
+            class="welcomeIntroContnts welcomeProgramming"
+          >{{ top.teams.team4 }}</a>
         </div>
       </div>
       <div id="news">
         <h3><img src="~assets/svg/news.svg" alt="News"></h3>
-        <span class="link"><NuxtLink to="/posts/" class="newsLink">>> 一覧</NuxtLink></span>
+        <span
+          class="link"
+        ><NuxtLink to="/posts/" class="newsLink">>> 一覧</NuxtLink></span>
         <div id="newsBoxEnclose">
-          <NuxtLink v-for="i in blogNew" :key="i.id" :to="'/posts/' + i.id" class="newsBox">
+          <NuxtLink
+            v-for="i in blogNew"
+            :key="i.id"
+            :to="'/posts/' + i.id"
+            class="newsBox"
+          >
             <p class="date">
               {{ new Date(i.publishedAt).toLocaleDateString() }}
             </p>
@@ -41,7 +62,13 @@
         <div class="introBoxWrapper">
           <div id="illust" class="introBox">
             <div>
-              <h3><img class="introTitle" src="~assets/svg/illust.svg" alt="イラスト班"></h3>
+              <h3>
+                <img
+                  class="introTitle"
+                  src="~assets/svg/illust.svg"
+                  alt="イラスト班"
+                >
+              </h3>
               <p v-html="top.teams.team1_desc" />
             </div>
             <div>
@@ -50,7 +77,13 @@
           </div>
           <div id="movie" class="introBox">
             <div>
-              <h3><img class="introTitle" src="~assets/svg/movie.svg" alt="動画班"></h3>
+              <h3>
+                <img
+                  class="introTitle"
+                  src="~assets/svg/movie.svg"
+                  alt="動画班"
+                >
+              </h3>
               <p v-html="top.teams.team2_desc" />
             </div>
             <div>
@@ -68,7 +101,9 @@
         <div class="introBoxWrapper">
           <div id="DTM" class="introBox">
             <div>
-              <h3><img class="introTitle" src="~assets/svg/dtm.svg" alt="DTM班"></h3>
+              <h3>
+                <img class="introTitle" src="~assets/svg/dtm.svg" alt="DTM班">
+              </h3>
               <p v-html="top.teams.team3_desc" />
             </div>
             <div>
@@ -77,11 +112,21 @@
           </div>
           <div id="programming" class="introBox">
             <div>
-              <h3><img class="introTitle" src="~assets/svg/programming.svg" alt="プログラミング班"></h3>
+              <h3>
+                <img
+                  class="introTitle"
+                  src="~assets/svg/programming.svg"
+                  alt="プログラミング班"
+                >
+              </h3>
               <p v-html="top.teams.team4_desc" />
             </div>
             <div>
-              <img class="sample" src="~assets/webp/programming_intro.webp" alt="">
+              <img
+                class="sample"
+                src="~assets/webp/programming_intro.webp"
+                alt=""
+              >
             </div>
           </div>
         </div>
@@ -103,14 +148,12 @@ export default {
   },
   async asyncData () {
     const res = await Promise.all([
-      axios.get(
-        'https://tcu-dc.microcms.io/api/v1/top',
-        { headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY } }
-      ),
-      axios.get(
-        'https://tcu-dc.microcms.io/api/v1/blog',
-        { headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY } }
-      )
+      axios.get('https://tcu-dc.microcms.io/api/v1/top', {
+        headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY }
+      }),
+      axios.get('https://tcu-dc.microcms.io/api/v1/blog', {
+        headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY }
+      })
     ])
     return {
       top: res[0].data,
@@ -123,9 +166,21 @@ export default {
       titleTemplate: '',
       meta: [
         { hid: 'og:type', property: 'og:type', content: 'website' },
-        { hid: 'description', name: 'description', content: this.top.description },
-        { hid: 'og:title', property: 'og:title', content: '東京都市大学デジタルコンテンツ研究会' },
-        { hid: 'og:description', property: 'og:description', content: this.top.description }
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.top.description
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: '東京都市大学デジタルコンテンツ研究会'
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.top.description
+        }
       ]
     }
   },
