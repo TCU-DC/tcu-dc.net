@@ -10,7 +10,7 @@
           <p />
           <h1>記事一覧</h1>
           <NuxtLink
-            v-for="i in getNewBlog"
+            v-for="i in getNoindexFilteredBlogall"
             :key="i.id"
             :to="'/posts/' + i.id"
             class="blogall_box"
