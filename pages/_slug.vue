@@ -23,14 +23,12 @@ export default {
   async asyncData ({ params }) {
     const slug = params.slug
     const res = await Promise.all([
-      axios.get(
-        'https://tcu-dc.microcms.io/api/v1/top',
-        { headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY } }
-      ),
-      axios.get(
-        'https://tcu-dc.microcms.io/api/v1/page/' + slug,
-        { headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY } }
-      )
+      axios.get(process.env.API_BASE_URL + 'top', {
+        headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY }
+      }),
+      axios.get(process.env.API_BASE_URL + 'page/' + slug, {
+        headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY }
+      })
     ])
     return {
       top: res[0].data,
@@ -41,9 +39,21 @@ export default {
     return {
       title: this.page.title,
       meta: [
-        { hid: 'description', name: 'description', content: this.page.description },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.page.description
+        },
         { hid: 'og:title', property: 'og:title', content: this.page.title },
-        { hid: 'og:description', property: 'og:description', content: this.page.description }
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.page.description
+        },
+        // apiから取得したnoindexの値がtrueの場合にnoindexタグを追加
+        this.page.noindex
+          ? { hid: 'robots', name: 'robots', content: 'noindex' }
+          : {}
       ]
     }
   }
