@@ -8,13 +8,15 @@
       <div id="blogWrapper">
         <div id="blogDoc">
           <div id="blogContents" class="link-decoration">
-            <span class="blogblogContentsDate">{{ new Date(blog.publishedAt).toLocaleDateString() }}</span>
+            <span class="blogblogContentsDate">{{
+              new Date(blog.publishedAt).toLocaleDateString()
+            }}</span>
             <h1>{{ blog.title }}</h1>
             <p v-html="blog.body" />
           </div>
           <div id="blogFooter">
             <h3>新着記事</h3>
-            <div v-for="i in blogNew" :key="i.id">
+            <div v-for="i in getNewBlog" :key="i.id">
               <p class="blogNewArticlesDate">
                 {{ new Date(i.publishedAt).toLocaleDateString() }}
               </p>
@@ -29,7 +31,7 @@
             </NuxtLink>
           </div>
         </div>
-        <BlogSidebar :contents="blogall" />
+        <BlogSidebar :contents="getNewBlog" />
       </div>
     </main>
     <footer v-html="top.footer.body" />
@@ -47,18 +49,15 @@ export default {
   async asyncData ({ params }) {
     const slug = params.slug
     const res = await Promise.all([
-      axios.get(
-        'https://tcu-dc.microcms.io/api/v1/top',
-        { headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY } }
-      ),
-      axios.get(
-        'https://tcu-dc.microcms.io/api/v1/blog/',
-        { headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY } }
-      ),
-      axios.get(
-        'https://tcu-dc.microcms.io/api/v1/blog/' + slug,
-        { headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY } }
-      )
+      axios.get(process.env.API_BASE_URL + 'top', {
+        headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY }
+      }),
+      axios.get(process.env.API_BASE_URL + 'blog/', {
+        headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY }
+      }),
+      axios.get(process.env.API_BASE_URL + 'blog/' + slug, {
+        headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY }
+      })
     ])
     return {
       top: res[0].data,
@@ -70,17 +69,33 @@ export default {
     return {
       title: this.blog.title,
       meta: [
-        { hid: 'description', name: 'description', content: this.blog.description },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.blog.description
+        },
         { hid: 'og:title', property: 'og:title', content: this.blog.title },
         { hid: 'og:image', property: 'og:image', content: this.blog.img.url },
-        { hid: 'og:description', property: 'og:description', content: this.blog.description }
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.blog.description
+        },
+        // apiから取得したnoindexの値がtrueの場合にnoindexタグを追加
+        this.blog.noindex
+          ? { hid: 'robots', name: 'robots', content: 'noindex' }
+          : {}
       ]
     }
   },
   computed: {
-    blogNew () {
+    getNoindexFilteredBlogall () {
+      const filtered = this.blogall.filter(item => item.noindex === false)
+      return filtered
+    },
+    getNewBlog () {
       /* (0, {表示させたい記事の数}) */
-      return this.blogall.slice(0, 5)
+      return this.getNoindexFilteredBlogall.slice(0, 5)
     }
   }
 }

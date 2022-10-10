@@ -9,7 +9,12 @@
         <div id="blogIndex" class="link-decoration">
           <p />
           <h1>記事一覧</h1>
-          <NuxtLink v-for="i in blogall" :key="i.id" :to="'/posts/' + i.id" class="blogall_box">
+          <NuxtLink
+            v-for="i in getNewBlog"
+            :key="i.id"
+            :to="'/posts/' + i.id"
+            class="blogall_box"
+          >
             <p class="blogall_date">
               {{ new Date(i.publishedAt).toLocaleDateString() }}
             </p>
@@ -19,7 +24,7 @@
           </NuxtLink>
           <p />
         </div>
-        <BlogSidebar :contents="blogall" />
+        <BlogSidebar :contents="getNewBlog" />
       </div>
     </main>
     <footer v-html="top.footer.body" />
@@ -36,14 +41,12 @@ export default {
   },
   async asyncData () {
     const res = await Promise.all([
-      axios.get(
-        'https://tcu-dc.microcms.io/api/v1/top',
-        { headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY } }
-      ),
-      axios.get(
-        'https://tcu-dc.microcms.io/api/v1/blog/',
-        { headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY } }
-      )
+      axios.get(process.env.API_BASE_URL + 'top', {
+        headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY }
+      }),
+      axios.get(process.env.API_BASE_URL + 'blog/?limit=1000', {
+        headers: { 'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY }
+      })
     ])
     return {
       top: res[0].data,
@@ -54,16 +57,28 @@ export default {
     return {
       title: '記事一覧',
       meta: [
-        { hid: 'description', name: 'description', content: '東京都市大学デジタルコンテンツ研究会の記事一覧ページです。' },
+        {
+          hid: 'description',
+          name: 'description',
+          content: '東京都市大学デジタルコンテンツ研究会の記事一覧ページです。'
+        },
         { hid: 'og:title', property: 'og:title', content: '記事一覧' },
-        { hid: 'og:description', property: 'og:description', content: '東京都市大学デジタルコンテンツ研究会の記事一覧ページです。' }
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: '東京都市大学デジタルコンテンツ研究会の記事一覧ページです。'
+        }
       ]
     }
   },
   computed: {
-    blogNew () {
+    getNoindexFilteredBlogall () {
+      const filtered = this.blogall.filter(item => item.noindex === false)
+      return filtered
+    },
+    getNewBlog () {
       /* (0, {表示させたい記事の数}) */
-      return this.blogall.slice(0, 5)
+      return this.getNoindexFilteredBlogall.slice(0, 5)
     }
   }
 }
