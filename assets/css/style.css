@@ -8,7 +8,7 @@ body {
   background-image: linear-gradient(to bottom, #ef5da8, #ef5da8);
   position: relative;
   overflow-x: hidden;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Hiragino Sans W3", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Noto Sans JP", sans-serif;
 }
 
 main ul {
@@ -58,7 +58,7 @@ a.link {
 
 .link a::after,
 a.link::after {
-  content: '';
+  content: "";
   background: rgba(0, 0, 0, 0.5);
   position: absolute;
   bottom: 0;
@@ -204,7 +204,7 @@ a.blogall_box:hover {
     right: 0;
     background: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 0 0 15px 15px;
+    border-radius: 0 0 10px 10px;
   }
 
   nav .button {
@@ -222,8 +222,8 @@ a.blogall_box:hover {
   #logo {
     position: fixed;
     width: 220px;
-    top: 2%;
-    left: 2%;
+    top: 15px;
+    left: 15px;
   }
 
   nav ul {
@@ -242,7 +242,7 @@ a.blogall_box:hover {
 
     /* Note: backdrop-filter has minimal browser support */
     backdrop-filter: blur(4px);
-    border-radius: 15px;
+    border-radius: 10px;
   }
 
   nav li {
@@ -313,7 +313,7 @@ a.blogall_box:hover {
     padding: 5vmax 4vmax 2vmax 4vmax;
     width: 96%;
     background: #fff;
-    border-radius: 0 30px 30px 0;
+    border-radius: 0 15px 15px 0;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
 
@@ -326,7 +326,7 @@ a.blogall_box:hover {
     padding: 0;
     color: #333;
     font-weight: 500;
-    line-height: 1.4em;
+    line-height: 1.5;
     font-size: 0.95em;
     margin-top: 1vh;
     margin-bottom: 3vh;
@@ -345,7 +345,7 @@ a.blogall_box:hover {
     padding: 4.5vmax 0;
     width: 50vmax;
     height: 12vmax;
-    border-radius: 15px;
+    border-radius: 10px;
   }
 
   main #news {
@@ -368,11 +368,11 @@ a.blogall_box:hover {
     height: 150px;
     margin-right: 1em;
     background: #fff;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
   main .newsBox .date {
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: bold;
   }
 
@@ -387,7 +387,7 @@ a.blogall_box:hover {
     margin-left: 5%;
     width: 96%;
     background: #fff;
-    border-radius: 30px 0 0 30px;
+    border-radius: 15px 0 0 15px;
     padding: 5%;
     padding-bottom: 3vmin;
   }
@@ -413,13 +413,13 @@ a.blogall_box:hover {
 
   main .introBox:nth-child(odd) {
     padding: 8%;
-    border-radius: 0 30px 30px 0;
+    border-radius: 0 15px 15px 0;
   }
 
   main .introBox:nth-child(even) {
     padding: 8%;
     margin-left: 5%;
-    border-radius: 30px 0 0 30px;
+    border-radius: 15px 0 0 15px;
   }
 
   main .introBox .introTitle {
@@ -431,7 +431,7 @@ a.blogall_box:hover {
     margin-top: 5%;
     width: 96%;
     padding: 8%;
-    border-radius: 0 30px 30px 0;
+    border-radius: 0 15px 15px 0;
     background: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
@@ -460,7 +460,7 @@ a.blogall_box:hover {
     right: 5px;
     background: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 0 0 15px 15px;
+    border-radius: 0 0 10px 10px;
   }
 
   nav .button {
@@ -492,8 +492,8 @@ a.blogall_box:hover {
 
   #logo {
     position: fixed;
-    top: 2%;
-    left: 2%;
+    top: 15px;
+    left: 30px;
   }
 
   .background_pink {
@@ -550,7 +550,7 @@ a.blogall_box:hover {
     width: 35vw;
     height: 82vh;
     background: #fff;
-    border-radius: 30px;
+    border-radius: 15px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
 
@@ -562,7 +562,7 @@ a.blogall_box:hover {
   main #welcome p {
     color: #333;
     font-weight: 500;
-    line-height: 1.6em;
+    line-height: 1.5;
     font-size: 1em;
     margin-bottom: 5vh;
   }
@@ -580,7 +580,7 @@ a.blogall_box:hover {
     padding: 6vmin 0;
     width: 15vw;
     height: 15vh;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
   #welcome::-webkit-scrollbar {
@@ -613,17 +613,17 @@ a.blogall_box:hover {
     height: 20vh;
     margin-right: 1em;
     background: #fff;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
   main .newsBox .date {
     font-weight: bold;
-    font-size: 2.4vmin;
+    font-size: 2vmin;
   }
 
   main .newsBox .description {
-    font-size: 2vmin;
-    margin-top: 3vmin;
+    font-size: 1.8vmin;
+    margin-top: 2.8vmin;
     color: #555;
   }
 
@@ -637,7 +637,7 @@ a.blogall_box:hover {
     top: 43vh;
     background: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px 0 0 30px;
+    border-radius: 15px 0 0 15px;
   }
 
   main #general .generalImg {
@@ -676,7 +676,7 @@ a.blogall_box:hover {
     margin-right: 2vw;
     background: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
+    border-radius: 15px;
   }
 
   main .introBox .introTitle {
@@ -689,7 +689,7 @@ a.blogall_box:hover {
     margin: 2vw auto 2vw auto;
     background: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
+    border-radius: 15px;
     padding: 5% 15% 5% 15%;
   }
 
@@ -710,9 +710,9 @@ a.blogall_box:hover {
   #contents h1,
   #QandA h1,
   #blogIndex h1 {
-    font-size: 2.2em;
+    font-size: 2em;
     font-weight: bold;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
   }
 
   #blogWrapper h2,
@@ -755,37 +755,37 @@ a.blogall_box:hover {
   #contents p,
   #QandA p {
     color: #333;
-    line-height: 1.7em;
+    line-height: 1.5;
   }
 
   #blogContents br,
   #contents br,
   #QandA br {
     display: block;
-    content: '';
+    content: "";
     margin: 1em 0;
   }
 
   .blogblogContentsDate {
     color: #555;
-    line-height: 1.7em;
+    line-height: 1.5;
   }
 
   /* Contents */
   #contents {
-    margin: 2% auto 2% auto;
-    width: 96%;
+    margin: 1% auto 1% auto;
+    width: 98%;
     padding: 5%;
     min-height: calc(100vh - 75px);
     background: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
+    border-radius: 10px;
   }
 
   /* Blog */
   #blogWrapper {
-    width: 96%;
-    margin: 2% auto 2% auto;
+    width: 98%;
+    margin: 1% auto 1% auto;
   }
 
   #blogContents {
@@ -794,7 +794,7 @@ a.blogall_box:hover {
     padding: 5%;
     background: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
+    border-radius: 10px;
   }
 
   #blogFooter {
@@ -807,7 +807,7 @@ a.blogall_box:hover {
     width: 100%;
     background: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
+    border-radius: 10px;
   }
 
   #blogAuthor {
@@ -849,7 +849,7 @@ a.blogall_box:hover {
     padding: 5%;
     background: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
+    border-radius: 10px;
   }
 
   .blogall_title {
@@ -864,9 +864,9 @@ a.blogall_box:hover {
   #contents h1,
   #QandA h1,
   #blogIndex h1 {
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: bold;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
   }
 
   #blogWrapper h2,
@@ -909,20 +909,20 @@ a.blogall_box:hover {
   #contents p,
   #QandA p {
     color: #333;
-    line-height: 2em;
+    line-height: 1.5;
   }
 
   #blogContents br,
   #contents br,
   #QandA br {
     display: block;
-    content: '';
+    content: "";
     margin: 1em 0;
   }
 
   .blogblogContentsDate {
     color: #555;
-    line-height: 1.7em;
+    line-height: 1.5;
   }
 
   /* Contents */
@@ -933,7 +933,7 @@ a.blogall_box:hover {
     padding: 5% 10% 5% 10%;
     background: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
+    border-radius: 15px;
   }
 
   /* Blog */
@@ -956,7 +956,7 @@ a.blogall_box:hover {
     padding: 5%;
     background: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
+    border-radius: 15px;
   }
 
   #blogFooter {
@@ -964,7 +964,7 @@ a.blogall_box:hover {
     padding: 5%;
     background: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
+    border-radius: 15px;
   }
 
   #blogFooter h3 {
@@ -978,7 +978,7 @@ a.blogall_box:hover {
     margin-left: 2%;
     background: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
+    border-radius: 15px;
   }
 
   #blogAuthor {
@@ -1020,7 +1020,7 @@ a.blogall_box:hover {
     padding: 5%;
     background: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
+    border-radius: 15px;
   }
 
   .blogall_title {
